@@ -47,7 +47,7 @@ app.get('api/getName', (req, res) => {
 
 app.get('api/getImage', (req, res) => {
     res.set('Access-Comtrol-Allow-Origin', '*');
-    res.sendFile('/public/alani.jpg');
+    res.sendFile('public/alani.jpg');
 })
 
 
