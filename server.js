@@ -51,6 +51,11 @@ const server = http.createServer((req, res) =>{ //callback function to define wh
             res.json({name: 'My Website'});
         })
 
+        app.get('api/getImage', (req, res) => {
+            res.set('Access-Comtrol-Allow-Origin', '*');
+            res.sendFile('public/alani.jpg');
+        })
+
 
 //        res.write(method);
 //        res.write(url);
