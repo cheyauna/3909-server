@@ -44,17 +44,21 @@ const server = http.createServer((req, res) =>{ //callback function to define wh
 
 
         res.writeHead(200, {'Content-Type': mimeType}); //200 - status code, means ok
-        fs.createReadStream(filepath).pipe(res);
+        fs.createReadStream(filepath).pipe(resn);
 
         app.get('api/getName', (req, res) => {
             res.set('Access-Control-Allow-Origin', '*');
             res.json({name: 'My Website'});
-        })
+        });
 
         app.get('api/getImage', (req, res) => {
-            res.set('Access-Comtrol-Allow-Origin', '*');
+            res.set('Access-Control-Allow-Origin', '*');
             res.sendFile('public/alani.jpg');
-        })
+        });
+
+        app.get('/', (req, res) => {
+          res.send('Hello World!');
+        });
 
 
 //        res.write(method);
