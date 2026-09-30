@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 
 app.get('/api/getName', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
-    res.json({name: 'mine'});
+    res.json({name: 'WACS'});
 });
 
 app.get('/api/getImage', (req, res) => {
