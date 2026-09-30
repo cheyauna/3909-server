@@ -33,7 +33,7 @@ app.get('/api/getName', (req, res) => {
 
 app.get('/api/getImage', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
-    res.sendFile('public/alani.jpg');
+    res.sendFile(path.join(__dirname, '/public/wacs.jpg'));
 });
 
 app.listen(PORT, "0.0.0.0", () => {
