@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Course Servegitr</title>
+            <title>Course Servegigiottr</title>
         </head>
         <body>
             <h1>Hello from Cheyauna!</h1>
