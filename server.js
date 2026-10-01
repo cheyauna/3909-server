@@ -11,6 +11,29 @@ let mimeLookup = {
     '.jpg' : 'image/jpeg'
 };
 
+//app.use("/public", express)
+
+
+
+app.get('/api/getName', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.json({name: 'WACS'});
+});
+
+app.get('/api/getImage', (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.sendFile(path.join(__dirname, '/public/wacs.jpg'));
+});
+
+app.post("/public/home", (req, res) => {
+    res.sendFile(path.join(__dirname, "public", "hello.html"));
+})
+
+app.post("/public/home", (req, res) => {
+    res.send(`Form submitted: ${req.query.myTextInput}`);
+})
+
+
 app.get("/", (req, res) => {
     res.send(`
         <!DOCTYPE html>
@@ -24,16 +47,6 @@ app.get("/", (req, res) => {
         </body>
         </html>
     `);
-});
-
-app.get('/api/getName', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.json({name: 'WACS'});
-});
-
-app.get('/api/getImage', (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
-    res.sendFile(path.join(__dirname, '/public/wacs.jpg'));
 });
 
 app.listen(PORT, "0.0.0.0", () => {
