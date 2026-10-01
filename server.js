@@ -28,25 +28,26 @@ app.post("/public/home", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "hello.html"));
 })
 
-app.post("/public/home", upload.single, (req, res) => {
-    res.send(`Form submitted: ${req.query.myTextInput}`);
+app.post("/public/home", upload.single("myFile"), (req, res) => {
+    console.log(req.file)
+    res.send(`Form submitted: ${req.body.myTextInput}`);
 })
 
 
-app.get("/", (req, res) => {
-    res.send(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>AIP Server</title>
-        </head>
-        <body>
-            <h1>Hello from Cheyauna!</h1>
-            <p>This page is being served by Node.js and Express.</p>
-        </body>
-        </html>
-    `);
-});
+//app.get("/", (req, res) => {
+//    res.send(`
+//        <!DOCTYPE html>
+//        <html>
+//        <head>
+//            <title>AIP Server</title>
+//        </head>
+//        <body>
+//            <h1>Hello from Cheyauna!</h1>
+//            <p>This page is being served by Node.js and Express.</p>
+//        </body>
+//        </html>
+//    `);
+//});
 
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server listening on port ${PORT}`);
