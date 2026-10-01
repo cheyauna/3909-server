@@ -7,11 +7,20 @@
 <body>
     <h1>Hi!</h1>
 
-    <form>
-        <input method = "post" type = "text" name = "myTextInput" value = "default" id = "myText">
+    <form method = "post" enctype = "text/plain" onsubmit = "myFunction(event)">
+        <input  type = "text" name = "myTextInput" value = "default" id = "myText">
+        <input type = "password" name = "myPass">
+        <input type = "week" name = "myWeek">
+        <input type = "date" name = "myDate">
+        <input type = "color" name = "myColour">
         <input type = "submit" value = "Send">
     </form>
 </body>
 
+<script>
+    function myFunction(e){
+        alert("Form Submitted");
+    }
+</script>
 
 </html>

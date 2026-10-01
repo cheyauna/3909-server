@@ -4,16 +4,15 @@ const PORT = process.env.PORT || 3000;
 const path = require('path');
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use("/public", serveIndex(path.join(__dirnname, "public")));
+
+const upload multer({dest:"./uploads"})
 
 let mimeLookup = {
     '.js' : 'application/javascript',
     '.html' : 'text/html',
     '.jpg' : 'image/jpeg'
 };
-
-//app.use("/public", express)
-
-
 
 app.get('/api/getName', (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
@@ -29,7 +28,7 @@ app.post("/public/home", (req, res) => {
     res.sendFile(path.join(__dirname, "public", "hello.html"));
 })
 
-app.post("/public/home", (req, res) => {
+app.post("/public/home", upload.single, (req, res) => {
     res.send(`Form submitted: ${req.query.myTextInput}`);
 })
 
