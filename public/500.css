@@ -1,0 +1,48 @@
+.oopsie{
+    text-align: center;
+        color: pink;
+          font-family: 'Press Start 2P', monospace;
+
+          /* 3. CRITICAL: Use multiples of the native grid size (usually 8px) */
+          font-size: 32px;
+          line-height: 1.5;
+
+          /* 4. CRITICAL: Force the browser to render sharp, crisp edges */
+          image-rendering: pixelated;
+          image-rendering: crisp-edges;
+          -webkit-font-smoothing: none;
+          -moz-osx-font-smoothing: none;
+}
+
+#cc-500{
+    text-align: center;
+            color: green;
+              font-family: 'Press Start 2P', monospace;
+
+              /* 3. CRITICAL: Use multiples of the native grid size (usually 8px) */
+              font-size: 25px;
+              line-height: 1.5;
+
+              /* 4. CRITICAL: Force the browser to render sharp, crisp edges */
+              image-rendering: pixelated;
+              image-rendering: crisp-edges;
+              -webkit-font-smoothing: none;
+              -moz-osx-font-smoothing: none;
+
+}
+
+#error-code{
+    text-align: center;
+     background-color: pink;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: bold;
+        border-radius: 12px;
+        aspect-ratio: 2/.5;
+        hegiht: 20px;
+        width: 100px;
+        margin: 0 auto;
+}

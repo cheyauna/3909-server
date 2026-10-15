@@ -7,21 +7,44 @@
 <body>
     <h1>Hi!</h1>
 
-    <form method = "post" enctype = "multipart/form-data" onsubmit = "myFunction(event)">
-        <input  type = "text" name = "myTextInput" value = "default" id = "myText">
-        <input type = "file">
-<!--        <input type = "password" name = "myPass">-->
-<!--        <input type = "week" name = "myWeek">-->
-<!--        <input type = "date" name = "myDate">-->
-<!--        <input type = "color" name = "myColour">-->
+    <form method = "post" id="myForm">
+        <input  type = "text" name = "myUserName"  id = "myText">
+        <input  type = "password" name = "mySecret"  id = "mySecret">
         <input type = "submit" value = "Send">
     </form>
+    <p id = "responseText"></p>
 </body>
 
 <script>
-    function myFunction(e){
-        alert("Form Submitted");
-    }
+    document.getElementById("myForm").addEventListener("submit", (event) => {
+        event.preventDefault()
+        const formData = new FormData(event.target)
+        const urlEncoded = new URLSearchParams(formData)
+
+        myAjaxRequest = new XMLHttpRequest()
+        myAjaxRequest.addEventListener("load", () => {
+            let res = JSON.parse(myAjaxRequest.responseText)
+            document.getElementById("responseText").innerHTML = res.text
+        })
+
+        myAjaxRequest.open("POST", "/public/home")
+        myAjaxRequest.setReuestHeader("Content-Type", "application/x-www-form-urlencoded")
+        myAjaxRequest.send(urlEncoded)
+    })
 </script>
 
 </html>
+
+
+
+
+
+<!--    <form method = "post" enctype = "multipart/form-data" onsubmit = "myFunction(event)">-->
+<!--        <input  type = "text" name = "myTextInput" value = "default" id = "myText">-->
+<!--        <input type = "file">-->
+<!--&lt;!&ndash;        <input type = "password" name = "myPass">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type = "week" name = "myWeek">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type = "date" name = "myDate">&ndash;&gt;-->
+<!--&lt;!&ndash;        <input type = "color" name = "myColour">&ndash;&gt;-->
+<!--        <input type = "submit" value = "Send">-->
+<!--    </form>-->

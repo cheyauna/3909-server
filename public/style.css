@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/*
+* A cream background, soft green accents,
+* and rounded cells would suit your cozy café theme.
+* colour palette
+* cream colour - #FEFBEA
+* cream green - #B6D7A8
+* moss green - #8A9A5B
+* soft sage - #9CAF88
+* grey toned sage - #9CAF88
+* cream pink - #FFE3EB
+* blush pink - #FF7782
+* dusty rose - #DCA1A1
+* cream purple - #C79FEF
+* eggplant - #614051
+* lavender - #967BB6
+* plum - #673147
+* cream coffee - #C7A07A
+* brown - #734130
+*/
+
+
+body{
+    background-color: #FEFBEA;
+    margin: 0;
+    padding: 20px 12px;
+}
+/*
+* "cozy corner" styling
+*/
+.CC{
+    text-align: center;
+        color: green;
+        font-family: 'Press Start 2P', monospace;
+
+        /* 3. CRITICAL: Use multiples of the native grid size (usually 8px) */
+        font-size: clamp(20px, 5vw, 50px);
+        line-height: 1.5;
+}
+
+/*
+* welcome message styling
+*/
+#welcome{
+    text-align: center;
+    color: green;
+    font-family: 'Press Start 2P', monospace;
+
+    /* 3. CRITICAL: Use multiples of the native grid size (usually 8px) */
+    font-size: clamp(10px, 2.5vw, 20px);
+    line-height: 1.5;
+}
+
+/*
+* grid styling
+*/
+.grid-container{
+    display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: repeat(4, minmax(0, 1fr));
+        width: min(400px, 90vw);
+        aspect-ratio: 1 / 1;
+        gap: 8px;
+      margin: 0 auto;
+}
+
+/*
+* grid box styling
+*/
+.grid-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    min-height: 0;
+    background-color: pink;
+    color: white;
+    font-size: 1.2rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+/*
+* hovering over grid box styling
+*/
+.grid-item:hover{
+    background-color: #FFE3EB;
+        transform: scale(1.03);
+}
+
+/*
+* grid box selected styling
+*/
+.grid-item.selected,
+.grid-item.selected:hover{
+    background-color: #c5e1c5;
+        border: 2px solid #6b9b72;
+        box-shadow: 0 0 8px rgba(107, 155, 114, 0.4);
+}
+
+/*
+* generator box styling
+*/
+.grid-item-generator{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+    min-height: 0;
+    background-color: pink;
+    color: white;
+    font-size: 1.2rem;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+/*
+* hovering over generator box styling
+*/
+.grid-item-generator:hover{
+    background-color: #FFE3EB;
+        transform: scale(1.03);
+}
+
+/*
+* player, energy, money flexbox
+*/
+.resources{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player{
+    color: #734130;
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(12px, 2vw, 18px);
+    margin: 20px;
+    padding: 20px;
+
+}
+
+.energy{
+    color: #734130;
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(12px, 2vw, 18px);
+    margin: 20px;
+    padding: 20px;
+}
+
+.money{
+    color: #734130;
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(12px, 2vw, 18px);
+    margin: 20px;
+    padding: 20px;
+}
+
+
+
+/*
+* error message styling
+*/
+#no-energy-msg,
+#board-full-msg{
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFE3EB;
+    color: #5A3040;
+    padding: 12px 20px;
+    boarder-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0,15);
+    z-index: 1000;
+}
+#no-energy-msg.show,
+#board-full-msg.show{
+    display: block;
+}
+
+
+/*.itemContainer{
+    background-color: pink;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+
+}
+
+/*.itemContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: pink;
+    margin-bottom: 10px;
+    width: 20%;
+}
+.itemContainer h2{
+    text-align: center;
+    color: green;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.itemContainer p{
+    text-align: center;
+    color: green;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
