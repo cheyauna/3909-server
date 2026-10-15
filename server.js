@@ -93,11 +93,6 @@ app.post('/api/generate', (req, res) => {
         return res.status(404).json({error: "player not found"});
     }
 
-
-
-
-
-
     let generated = false;
     if(game.energy <= 0){
         return res.status(400).json({error : "not enough energy!"})
@@ -110,7 +105,7 @@ app.post('/api/generate', (req, res) => {
                    type: "matcha",
                    level: 1
                };
-               recordDiscovery(game.cell_contents[row][column]);
+               recordDiscovery(game, game.cell_contents[row][column]);
                game.energy -= 1;
                generated = true;
                break outerLoop;
@@ -315,9 +310,12 @@ app.get('/api/export', (req, res) => {
 
     for(const category in game.collections){
         const levels = game.collections[category];
-
+    console.log("Export category:", category);
+    console.log("Export levels:", levels);
         collectionProgress[category] ={
-            highestLevelDiscovered: Math.max(0, levels),
+            highestLevelDiscovered: levels.length > 0
+                ? Math.max(...levels)
+                : null,
             numberOfLevelsDiscovered: levels.length,
             discoveredLevels: levels
         };
@@ -352,6 +350,11 @@ console.log("Before recordDiscovery");
     //if(!game.collections[item.type].includes(item.level)){item.collections[item.type].push(item.level);}
 
     const discoveredLevels = game.collections[item.type];
+    const highestLevelDiscovered = discoveredLevels.length > 0
+        ? Math.max(...discoveredLevels)
+        : null;
+
+    const numberOfLevelsDiscovered = discoveredLevels.length;
     if(!discoveredLevels.includes(item.level)) discoveredLevels.push(item.level);
     console.log("After recordDiscovery");
 
