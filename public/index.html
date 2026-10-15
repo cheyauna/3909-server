@@ -11,32 +11,35 @@
         <h1 class="CC">cozy corner</h1>
         <p id="welcome">welcome to cheyauna's cozy corner</p>
     </div>
-    <div id = "no-energy-msg"></div>
-    <div id = "board-full-msg"></div>
-    <div class = "grid-container">
-        <!--<div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item">🍵</div>
-        <div class = "grid-item-generator">🍶</div> -->
+    <form id = "player-form">
+        <label for="player-name">Player name:</label>
+        <input
+                type = "text"
+                id = "player-name"
+                name = "name"
+                placeholder = "enter your name"
+                required
+        >
+        <label for = "start-collection">Favourite starting collection:</label>
+        <select id = "starting-collection" name = "collection" required>
+            <option value = "">choose a collection</option>
+            <option value = "matcha">matcha</option>
+        </select>
+        <button type = "submit">start game</button>
+        <p id = "player-error"></p>
+    </form>
+    <!-- loading msg -->
+    <p id = "loading-msg" hidden>loading cheyauna's cozy corner...</p>
+    <!--game hidden until setup is complete-->
+    <div id = "game-screen" hidden>
 
+        <div id = "no-energy-msg"></div>
+        <div id = "board-full-msg"></div>
+        <div class = "grid-container"></div>
+        <div id ="export-collection" type = "button">export collection</div>
+        <div class = resources></div>`
     </div>
-    <div class = resources>
-        <!--<div class = 'player'>👩🏼‍💻 cheyauna</div>
-        <div class = 'energy'>⚡️100</div>
-        <div class = 'money'>💰$254</div> -->
-    </div>
+
 </body>
 </html>
 

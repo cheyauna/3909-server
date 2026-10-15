@@ -187,7 +187,13 @@ body{
     display: block;
 }
 
-
+#loading-msg {
+color: black;
+background-color: white;
+font-size: 24px;
+padding: 20px;
+text-align: center;
+}
 /*.itemContainer{
     background-color: pink;
     border: 1px solid black;
